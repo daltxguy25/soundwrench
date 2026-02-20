@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SoundWrench</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <h1>SoundWrench</h1>
+    <p>Sound-first vehicle issue checker. Record while parked.</p>
+  </header>
+
+  <main class="container">
+    <section class="card warning">
+      <h2>Safety First</h2>
+      <p>Use this tool only while parked. Results are informational and not a professional diagnosis.</p>
+    </section>
+
+    <section class="card">
+      <h2>1) Record or Upload Audio</h2>
+      <div class="row">
+        <button id="recordButton" type="button">Start Recording</button>
+        <button id="stopButton" type="button" disabled>Stop</button>
+      </div>
+      <p id="recordStatus">Recorder idle.</p>
+      <audio id="audioPreview" controls></audio>
+      <label for="audioInput">Or upload audio file</label>
+      <input id="audioInput" type="file" accept="audio/*" capture="environment" />
+    </section>
+
+    <section class="card">
+      <h2>2) Optional Photo</h2>
+      <input id="photoInput" type="file" accept="image/*" capture="environment" />
+      <img id="photoPreview" alt="Uploaded preview" hidden />
+    </section>
+
+    <section class="card">
+      <h2>3) Analyze</h2>
+      <button id="analyzeButton" type="button">Analyze Sound</button>
+      <p id="analyzeStatus">No audio analyzed yet.</p>
+    </section>
+
+    <section class="card" id="resultsCard" hidden>
+      <h2>Results</h2>
+      <p><strong>Urgency:</strong> <span id="urgency"></span></p>
+      <p><strong>Likely issue:</strong> <span id="issue"></span></p>
+      <p><strong>Confidence:</strong> <span id="confidence"></span></p>
+      <p><strong>Why:</strong> <span id="reason"></span></p>
+      <h3>Next step</h3>
+      <p id="nextStep"></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Built for zero-cost hosting on GitHub Pages.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
